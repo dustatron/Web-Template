@@ -2,13 +2,31 @@ $(document).ready(function(){
   var translated = [];
 
   function makePL(word) {
+    var vowels = ['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'];
+    var letters = word.split('');
+
+    if (word.length === 1 && vowels.includes(word)){
+      letters[0] = word + 'ay';
+    }
+
+    // letters.forEach(function(letter, index){
+      // if (word.length === 1 && vowels.includes(word)){
+      //   letters[index] = letter + 'ay';
+      // } else if ( vowels.includes(letter) && letters.length > 0 ) {
+      //   console.log(letters.shift());
+      // } else {
+      //   console.log('error')
+      // }
+    // });
+    
     //do the magic
-    //return result;
+    return letters.join('');
   }
 
-  function printToDom(item) {
-    var result = item.join(" ");
+  function printToDom(arrayItem) {
+    var result = arrayItem.join(" ");
     $("#result").text(result);
+    translated = [];
   }
 
   //Button function

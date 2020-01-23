@@ -7,6 +7,14 @@ $(document).ready(function(){
 
     if (word.length === 1 && vowels.includes(word)){
       letters[0] = word + 'ay';
+    } else if (word.length > 1 && vowels.includes(word[0])){
+      letters.push("way");
+    } else if (word.length > 1 && !vowels.includes(word[0])) {
+      letters.push(letters[0]);
+      letters.splice(0, 1);
+      letters.push("ay");
+    } else {
+      console.log('error');
     }
 
     // letters.forEach(function(letter, index){

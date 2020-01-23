@@ -22,11 +22,11 @@ _This app will take in words from a user and return the words in Pig Latin_
 ## Specs
 
 Behavior | Input |  Output
------------|-------|----
+---------|-------|----
 The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels. | 1 | 1
 The program adds "ay" to single-letter words beginning with a vowel. | i | iay
 The program checks if a single letter word is a vowel. | i | iay
-The program will add "way" to the end of a multiletter word that begins with a vowel. | about | aboutWay
+The program will add "way" to the end of a multiletter word that begins with a vowel. | about | aboutway
 The program takes words beginning with one or more consonants and moves all of the first consecutive consonants to the end, and add "ay". | john | ohnJay
 The program will take the first consonants include "qu", move the "u" along with the "q". Don't forget about words like "squeal" where "qu" doesn't come first! | squeal | ealSquay
 For words beginning with "y", treat "y" as a consonant. | Yolo | oloYay

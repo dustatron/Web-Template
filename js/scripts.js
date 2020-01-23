@@ -6,26 +6,34 @@ $(document).ready(function(){
     var letters = word.split('');
 
     if (word.length === 1 && vowels.includes(word)){
+
+      //One letter words.
       letters[0] = word + 'ay';
     } else if (word.length > 1 && vowels.includes(word[0])){
+
+      //words starting with vowels and greater than 1.
       letters.push("way");
     } else if (word.length > 1 && !vowels.includes(word[0])) {
-      letters.push(letters[0]);
-      letters.splice(0, 1);
-      letters.push("ay");
+
+      //words starting consonants and greater 1.
+      for (let i = 0; i < (letters.length -1); i++) {
+       if(vowels.includes(letters[i])){
+         var back = letters.splice(i, (letters.length -1))
+         if (letters[letters.length -1] === "q" || letters[letters.length -1] === "Q" && back[0] === "u" || back[0] === "U"){
+           var theU = back[0];
+           letters.push(theU)
+           back.shift();
+         }
+
+        var letters = back.concat(letters); 
+         letters.push('ay');
+         break
+       } 
+      }
+ 
     } else {
       console.log('error');
     }
-
-    // letters.forEach(function(letter, index){
-      // if (word.length === 1 && vowels.includes(word)){
-      //   letters[index] = letter + 'ay';
-      // } else if ( vowels.includes(letter) && letters.length > 0 ) {
-      //   console.log(letters.shift());
-      // } else {
-      //   console.log('error')
-      // }
-    // });
     
     //do the magic
     return letters.join('');
